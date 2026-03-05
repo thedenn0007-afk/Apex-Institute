@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faculty — Your Institute Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.faculty-full-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:32px; }
+.faculty-full-card {
+  background:white; border-radius:20px; padding:40px;
+  border:1px solid var(--border); display:flex; gap:32px; align-items:flex-start;
+  transition:all 0.3s;
+}
+.faculty-full-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,0.08); }
+.faculty-avatar {
+  width:120px; height:120px; border-radius:50%; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Playfair Display',serif; font-size:40px; font-weight:700; color:white;
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  position:relative;
+}
+.faculty-avatar::after {
+  content:''; position:absolute; inset:-3px; border-radius:50%;
+  border:2px solid var(--emerald); opacity:0; transition:opacity 0.3s;
+}
+.faculty-full-card:hover .faculty-avatar::after { opacity:1; }
+.faculty-info h3 { font-size:22px; color:var(--navy); margin-bottom:4px; }
+.faculty-tag { font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--emerald); margin-bottom:12px; }
+.faculty-exp-badge { display:inline-flex; align-items:center; gap:6px; background:var(--light); color:var(--grey); font-size:13px; padding:4px 14px; border-radius:100px; margin-bottom:16px; }
+.faculty-bio { font-size:15px; color:var(--grey); line-height:1.8; margin-bottom:16px; }
+.faculty-qual { display:flex; flex-wrap:wrap; gap:8px; }
+.qual-pill { background:rgba(5,150,105,0.08); color:var(--emerald-dark); font-size:12px; font-weight:600; padding:4px 12px; border-radius:100px; border:1px solid rgba(5,150,105,0.2); }
+@media(max-width:1024px) { .faculty-full-grid { grid-template-columns:1fr; } }
+@media(max-width:600px) { .faculty-full-card { flex-direction:column; align-items:center; text-align:center; } .faculty-qual { justify-content:center; } }
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Your Institute Name</a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="courses.html">Courses</a><a href="faculty.html">Faculty</a><a href="results.html">Results</a><a href="materials.html">Materials</a><a href="contact.html">Contact</a>
+    <a href="admissions.html" class="btn btn-primary" style="padding:10px 20px">Enrol Now</a>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-badge">4 Expert Educators</div>
+    <h1>Meet Our <em>Faculty</em></h1>
+    <p>Passionate educators with proven track records in producing top rankers across JEE and NEET.</p>
+  </div>
+</div>
+
+<section style="background:var(--white);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Our Educators</div>
+      <h2 class="section-title">The Minds Behind <em>Every Rank</em></h2>
+      <p class="section-sub">Each faculty member brings deep subject expertise and a genuine passion for student success.</p>
+    </div>
+    <div class="faculty-full-grid">
+      <div class="faculty-full-card fade-in">
+        <div class="faculty-avatar">RS</div>
+        <div class="faculty-info">
+          <h3>Dr. Rajesh Sharma</h3>
+          <div class="faculty-tag">Physics — JEE &amp; NEET</div>
+          <div class="faculty-exp-badge">⏱ 12 Years Experience</div>
+          <p class="faculty-bio">Dr. Sharma is a Physics specialist who has coached over 200 students to top JEE ranks. His unique ability to simplify complex concepts in Mechanics, Electromagnetism and Modern Physics has made him one of the most sought-after teachers in Bengaluru.</p>
+          <div class="faculty-qual">
+            <span class="qual-pill">PhD Physics – IISc</span>
+            <span class="qual-pill">IIT Delhi Alumni</span>
+            <span class="qual-pill">JEE Specialist</span>
+          </div>
+        </div>
+      </div>
+      <div class="faculty-full-card fade-in">
+        <div class="faculty-avatar" style="background:linear-gradient(135deg,var(--emerald),var(--emerald-dark))">AG</div>
+        <div class="faculty-info">
+          <h3>Ms. Anjali Gupta</h3>
+          <div class="faculty-tag">Chemistry — JEE &amp; NEET</div>
+          <div class="faculty-exp-badge">⏱ 10 Years Experience</div>
+          <p class="faculty-bio">Ms. Gupta's approach to Organic and Inorganic Chemistry is legendary among students. Her structured teaching methodology ensures students not only understand reactions but develop intuition that helps them tackle unseen problems under exam conditions.</p>
+          <div class="faculty-qual">
+            <span class="qual-pill">M.Sc Chemistry – NIT</span>
+            <span class="qual-pill">Organic Chemistry Expert</span>
+            <span class="qual-pill">NEET Specialist</span>
+          </div>
+        </div>
+      </div>
+      <div class="faculty-full-card fade-in">
+        <div class="faculty-avatar" style="background:linear-gradient(135deg,#7C3AED,#5B21B6)">AK</div>
+        <div class="faculty-info">
+          <h3>Mr. Arjun Kumar</h3>
+          <div class="faculty-tag">Mathematics — JEE &amp; Class 9–10</div>
+          <div class="faculty-exp-badge">⏱ 15 Years Experience</div>
+          <p class="faculty-bio">Mr. Kumar is our senior-most faculty with 15 years of experience in Mathematics coaching. Students describe his Calculus and Algebra sessions as transformative. He has guided students to AIR rankings in the double digits consistently over the last decade.</p>
+          <div class="faculty-qual">
+            <span class="qual-pill">M.Tech – IIT Bombay</span>
+            <span class="qual-pill">Calculus Expert</span>
+            <span class="qual-pill">JEE Advanced Specialist</span>
+          </div>
+        </div>
+      </div>
+      <div class="faculty-full-card fade-in">
+        <div class="faculty-avatar" style="background:linear-gradient(135deg,#0F766E,#0D9488)">PS</div>
+        <div class="faculty-info">
+          <h3>Ms. Priya Singh</h3>
+          <div class="faculty-tag">Biology — NEET</div>
+          <div class="faculty-exp-badge">⏱ 8 Years Experience</div>
+          <p class="faculty-bio">Ms. Singh brings a unique visual and diagrammatic approach to Biology that has consistently produced NEET toppers. Her proprietary diagram sheets are used by students across Karnataka. She specialises in Botany, Zoology and Human Physiology.</p>
+          <div class="faculty-qual">
+            <span class="qual-pill">M.Sc Zoology – Mysore Uni</span>
+            <span class="qual-pill">NEET Biology Expert</span>
+            <span class="qual-pill">Physiology Specialist</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--cream);">
+  <div class="container">
+    <div class="counter-strip fade-in" style="background:var(--navy);">
+      <div class="counter-item"><div class="counter-num" data-target="45">0<span>+</span></div><div class="counter-label">Years Combined Experience</div></div>
+      <div class="counter-item"><div class="counter-num" data-target="500">0<span>+</span></div><div class="counter-label">Students Taught</div></div>
+      <div class="counter-item"><div class="counter-num" data-target="50">0<span>+</span></div><div class="counter-label">Top Rankers Produced</div></div>
+      <div class="counter-item"><div class="counter-num" data-target="4">0</div><div class="counter-label">IIT/NIT Alumni Faculty</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div><a href="index.html" class="footer-logo">Your Institute Name</a><p class="footer-tagline">Building India's next generation of engineers, doctors and scholars since 2015.</p></div>
+      <div class="footer-col"><h5>Programs</h5><div class="footer-links"><a href="courses.html">Class 9 Tuition</a><a href="courses.html">Class 10 Coaching</a><a href="courses.html">JEE Foundation</a><a href="courses.html">JEE Advanced</a><a href="courses.html">NEET Coaching</a></div></div>
+      <div class="footer-col"><h5>Quick Links</h5><div class="footer-links"><a href="about.html">About Us</a><a href="faculty.html">Faculty</a><a href="results.html">Results</a><a href="materials.html">Study Materials</a><a href="gallery.html">Gallery</a></div></div>
+      <div class="footer-col"><h5>Contact</h5><div class="footer-links"><a href="#">+91 XXXXX XXXXX</a><a href="#">info@yourinstitute.in</a><a href="#">Your City, State</a></div></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Your Institute Name. All rights reserved.</div>
+      <div class="footer-social"><a class="social-btn">📷</a><a class="social-btn">▶</a><a class="social-btn">f</a><a class="social-btn">💬</a></div>
+    </div>
+  </div>
+</footer>
+<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-btn">💬</a>
+<script src="js/main.js"></script>
+</body>
+</html>

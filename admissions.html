@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admissions — Your Institute Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.admission-layout { display:grid; grid-template-columns:1fr 1.2fr; gap:64px; align-items:start; }
+.admission-form-box { background:white; border-radius:24px; padding:52px; box-shadow:0 8px 48px rgba(0,0,0,0.08); border:1px solid var(--border); }
+.process-steps { display:flex; flex-direction:column; gap:0; }
+.process-step { display:flex; gap:20px; padding:24px 0; border-bottom:1px solid var(--border); position:relative; }
+.process-step:last-child { border-bottom:none; }
+.step-num { width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,var(--emerald),var(--emerald-dark)); color:white; font-weight:700; font-size:15px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.step-text h4 { font-size:16px; color:var(--navy); margin-bottom:4px; }
+.step-text p { font-size:14px; color:var(--grey); line-height:1.6; }
+.faq-section { margin-top:64px; }
+.faq-item { border:1px solid var(--border); border-radius:14px; margin-bottom:12px; overflow:hidden; }
+.faq-q { padding:20px 24px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; background:white; transition:background 0.2s; }
+.faq-q:hover { background:var(--light); }
+.faq-q h4 { font-size:16px; color:var(--navy); font-family:'DM Sans',sans-serif; font-weight:600; }
+.faq-toggle { font-size:20px; color:var(--emerald); transition:transform 0.3s; flex-shrink:0; }
+.faq-a { display:none; padding:0 24px 20px; font-size:15px; color:var(--grey); line-height:1.7; }
+.faq-item.open .faq-a { display:block; }
+.faq-item.open .faq-toggle { transform:rotate(45deg); }
+.fee-table { width:100%; border-collapse:collapse; margin-top:32px; }
+.fee-table th { background:var(--navy); color:white; padding:14px 20px; text-align:left; font-size:13px; font-weight:600; }
+.fee-table td { padding:14px 20px; font-size:14px; color:var(--text); border-bottom:1px solid var(--border); }
+.fee-table tr:last-child td { border-bottom:none; }
+.fee-table tr:hover td { background:rgba(5,150,105,0.04); }
+.fee-note { font-size:13px; color:var(--grey); margin-top:12px; line-height:1.6; }
+@media(max-width:1024px) { .admission-layout { grid-template-columns:1fr; } }
+@media(max-width:600px) { .admission-form-box { padding:32px 24px; } }
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Your Institute Name</a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="courses.html">Courses</a><a href="faculty.html">Faculty</a><a href="results.html">Results</a><a href="materials.html">Materials</a><a href="contact.html">Contact</a>
+    <a href="admissions.html" class="btn btn-primary" style="padding:10px 20px">Enrol Now</a>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-badge">Admissions Open 2025–26</div>
+    <h1>Begin Your <em>Journey</em></h1>
+    <p>Fill the form below and our counsellors will guide you to the right program within 24 hours.</p>
+  </div>
+</div>
+
+<section style="background:var(--cream);">
+  <div class="container">
+    <div class="admission-layout">
+      <div class="fade-in">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title" style="margin-bottom:32px;">Simple <em>3-Step</em> Process</h2>
+        <div class="process-steps">
+          <div class="process-step"><div class="step-num">1</div><div class="step-text"><h4>Submit Your Enquiry</h4><p>Fill the form with your details and the program you're interested in. Takes less than 2 minutes.</p></div></div>
+          <div class="process-step"><div class="step-num">2</div><div class="step-text"><h4>Free Counselling Session</h4><p>Our team will call you within 24 hours to understand your goals and recommend the best program.</p></div></div>
+          <div class="process-step"><div class="step-num">3</div><div class="step-text"><h4>Attend a Free Demo Class</h4><p>Experience our teaching methodology with a free demo class before you confirm your enrolment.</p></div></div>
+          <div class="process-step"><div class="step-num">4</div><div class="step-text"><h4>Confirm Enrolment</h4><p>Complete the registration formalities, receive your study materials, and join your batch!</p></div></div>
+        </div>
+
+        <div style="margin-top:40px;">
+          <h3 style="font-size:22px;color:var(--navy);margin-bottom:20px;">Fee Structure</h3>
+          <table class="fee-table">
+            <thead><tr><th>Program</th><th>Annual Fee</th><th>Monthly EMI</th></tr></thead>
+            <tbody>
+              <tr><td>Class 9 Tuition</td><td>₹36,000</td><td>₹3,000</td></tr>
+              <tr><td>Class 10 Board Coaching</td><td>₹42,000</td><td>₹3,500</td></tr>
+              <tr><td>JEE Foundation (2 yrs)</td><td>₹72,000</td><td>₹3,000</td></tr>
+              <tr><td>JEE Advanced Coaching (2 yrs)</td><td>₹84,000</td><td>₹3,500</td></tr>
+              <tr><td>NEET Coaching (2 yrs)</td><td>₹80,000</td><td>₹3,333</td></tr>
+            </tbody>
+          </table>
+          <p class="fee-note">* All fees include study materials. Scholarships available for students scoring 90%+ in previous exam. Contact us for sibling discounts.</p>
+        </div>
+      </div>
+
+      <div class="admission-form-box fade-in">
+        <h3 style="font-size:24px;color:var(--navy);margin-bottom:6px;">Admission Enquiry Form</h3>
+        <p style="font-size:14px;color:var(--grey);margin-bottom:32px;">We respond within 24 hours. All fields marked * are required.</p>
+        <div class="form-row">
+          <div class="form-group"><label>Student Name *</label><input type="text" placeholder="Full name"></div>
+          <div class="form-group"><label>Parent Name *</label><input type="text" placeholder="Parent / Guardian name"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Phone Number *</label><input type="tel" placeholder="+91 00000 00000"></div>
+          <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Current Class *</label>
+            <select><option value="">Select Class</option><option>Class 9</option><option>Class 10</option><option>Class 11</option><option>Class 12</option><option>Dropper</option></select>
+          </div>
+          <div class="form-group"><label>Interested Course *</label>
+            <select><option value="">Select Course</option><option>Class 9 Tuition</option><option>Class 10 Tuition</option><option>JEE Foundation</option><option>JEE Advanced</option><option>NEET Coaching</option></select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Preferred Batch Timing</label>
+            <select><option>No Preference</option><option>Morning (6–9 AM)</option><option>Evening (4–7 PM)</option></select>
+          </div>
+          <div class="form-group"><label>How did you hear about us?</label>
+            <select><option>Select</option><option>Friend / Student Referral</option><option>Google Search</option><option>Social Media</option><option>Newspaper / Pamphlet</option><option>Coaching Results Board</option></select>
+          </div>
+        </div>
+        <div class="form-group"><label>Message / Questions</label><textarea placeholder="Tell us about your goals, any specific doubts, or questions you have about our programs..."></textarea></div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
+          <input type="checkbox" id="demo" style="width:18px;height:18px;accent-color:var(--emerald);">
+          <label for="demo" style="font-size:14px;color:var(--text);cursor:pointer;">I'd like to attend a <strong>free demo class</strong> before enrolment</label>
+        </div>
+        <button class="form-submit" onclick="handleSubmit(this)">Submit Enquiry →</button>
+        <p style="font-size:13px;color:var(--grey);text-align:center;margin-top:16px;">🔒 Your information is private and will never be shared.</p>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section fade-in">
+      <div class="section-label">FAQs</div>
+      <h2 class="section-title" style="margin-bottom:32px;">Frequently Asked <em>Questions</em></h2>
+      <div class="faq-item open"><div class="faq-q" onclick="toggleFaq(this)"><h4>Is there a free demo class available?</h4><div class="faq-toggle">+</div></div><div class="faq-a">Yes! Every student is invited to attend one free demo class before they commit to any batch. This lets you experience our teaching style and get to know the faculty before deciding.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h4>What is the batch size?</h4><div class="faq-toggle">+</div></div><div class="faq-a">We cap batches at 20 students for Class 9–10 programs and 15 students for JEE and NEET programs. This ensures every student gets personal attention during class.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h4>Are study materials included in the fee?</h4><div class="faq-toggle">+</div></div><div class="faq-a">Yes, all printed study materials, notes, and practice papers are included in the program fee. There are no hidden costs for materials.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h4>Do you offer scholarships?</h4><div class="faq-toggle">+</div></div><div class="faq-a">Yes. Students who scored 90% or above in their previous board exam are eligible for a merit scholarship of up to 20% fee waiver. Sibling discounts and need-based scholarships are also available — contact us to know more.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h4>Can I pay in monthly instalments?</h4><div class="faq-toggle">+</div></div><div class="faq-a">Absolutely. We offer easy monthly EMI options for all programs. There is no interest charged on the instalment plan. Details are provided during the counselling session.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div><a href="index.html" class="footer-logo">Your Institute Name</a><p class="footer-tagline">Building India's next generation since 2015.</p></div>
+      <div class="footer-col"><h5>Programs</h5><div class="footer-links"><a href="courses.html">Class 9 Tuition</a><a href="courses.html">Class 10 Coaching</a><a href="courses.html">JEE Foundation</a><a href="courses.html">JEE Advanced</a><a href="courses.html">NEET Coaching</a></div></div>
+      <div class="footer-col"><h5>Quick Links</h5><div class="footer-links"><a href="about.html">About Us</a><a href="faculty.html">Faculty</a><a href="results.html">Results</a><a href="materials.html">Study Materials</a><a href="gallery.html">Gallery</a></div></div>
+      <div class="footer-col"><h5>Contact</h5><div class="footer-links"><a href="#">+91 XXXXX XXXXX</a><a href="#">info@yourinstitute.in</a><a href="#">Your City, State</a></div></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Your Institute Name. All rights reserved.</div>
+      <div class="footer-social"><a class="social-btn">&#128247;</a><a class="social-btn">&#9654;</a><a class="social-btn">f</a><a class="social-btn">&#128172;</a></div>
+    </div>
+  </div>
+</footer>
+<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-btn">&#128172;</a>
+<script src="js/main.js"></script>
+<script>
+function toggleFaq(el) {
+  el.parentElement.classList.toggle('open');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Your Institute Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.gallery-masonry { columns:3; column-gap:16px; }
+.gallery-item {
+  break-inside:avoid; border-radius:16px; overflow:hidden;
+  position:relative; cursor:pointer; display:block;
+  margin-bottom:16px; transition:transform 0.3s;
+}
+.gallery-item:hover { transform:scale(1.02); z-index:1; }
+.gallery-placeholder {
+  width:100%; display:flex; align-items:center; justify-content:center;
+  flex-direction:column; gap:12px; position:relative;
+}
+.gallery-placeholder::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,0.6));
+}
+.gallery-info { position:absolute; bottom:0; left:0; right:0; padding:20px; z-index:1; }
+.gallery-info h4 { color:white; font-size:16px; margin-bottom:4px; }
+.gallery-info p { color:rgba(255,255,255,0.6); font-size:13px; }
+.gallery-filter { display:flex; gap:12px; margin-bottom:40px; flex-wrap:wrap; }
+.g-filter-btn { padding:8px 24px; border-radius:100px; border:1.5px solid var(--border); font-size:14px; font-weight:600; color:var(--grey); cursor:pointer; transition:all 0.2s; background:white; }
+.g-filter-btn.active { background:var(--emerald); border-color:var(--emerald); color:white; }
+.g-filter-btn:hover:not(.active) { border-color:var(--emerald); color:var(--emerald); }
+.h180 { height:180px; } .h240 { height:240px; } .h200 { height:200px; } .h260 { height:260px; } .h220 { height:220px; }
+.gc1 { background:linear-gradient(135deg,#0F1F45,#1a4080); }
+.gc2 { background:linear-gradient(135deg,#047857,#065f46); }
+.gc3 { background:linear-gradient(135deg,#1E40AF,#1D4ED8); }
+.gc4 { background:linear-gradient(135deg,#7C3AED,#5B21B6); }
+.gc5 { background:linear-gradient(135deg,#065f46,#047857); }
+.gc6 { background:linear-gradient(135deg,#0F766E,#0D9488); }
+.gc7 { background:linear-gradient(135deg,#92400e,#b45309); }
+.gc8 { background:linear-gradient(135deg,#1E3A8A,#2563EB); }
+.gc9 { background:linear-gradient(135deg,#0F1F45,#3730a3); }
+.gc10 { background:linear-gradient(135deg,#166534,#15803d); }
+.gc11 { background:linear-gradient(135deg,#1e1b4b,#3730a3); }
+.gc12 { background:linear-gradient(135deg,#064e3b,#059669); }
+@media(max-width:1024px) { .gallery-masonry { columns:2; } }
+@media(max-width:600px) { .gallery-masonry { columns:1; } }
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Your Institute Name</a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="courses.html">Courses</a><a href="faculty.html">Faculty</a><a href="results.html">Results</a><a href="materials.html">Materials</a><a href="contact.html">Contact</a>
+    <a href="admissions.html" class="btn btn-primary" style="padding:10px 20px">Enrol Now</a>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-badge">Life at Your Institute</div>
+    <h1>Our <em>Gallery</em></h1>
+    <p>Moments from classrooms, award ceremonies, seminars and student celebrations.</p>
+  </div>
+</div>
+
+<section style="background:var(--white);">
+  <div class="container">
+    <div class="gallery-filter fade-in">
+      <button class="g-filter-btn active">All</button>
+      <button class="g-filter-btn">Classroom</button>
+      <button class="g-filter-btn">Awards</button>
+      <button class="g-filter-btn">Activities</button>
+      <button class="g-filter-btn">Seminars</button>
+    </div>
+    <div class="gallery-masonry fade-in">
+      <div class="gallery-item"><div class="gallery-placeholder gc1 h240"><div class="gallery-info"><h4>Physics Lab Session</h4><p>Classroom Teaching · 2024</p></div></div></div>
+      <div class="gallery-item"><div class="gallery-placeholder gc2 h180"><div class="gallery-info"><h4>JEE Toppers 2024</h4><p>Awards · AIR 85, 120</p></div></div></div>
+      <div class="gallery-item"><div class="gallery-placeholder gc3 h260"><div class="gallery-info"><h4>Annual Science Seminar</h4><p>Seminars · October 2024</p></div></div></div>
+      <div class="gallery-item"><div class="gallery-placeholder gc4 h200"><div class="gallery-info"><h4>NEET Celebration Day</h4><p>Awards · 2024</p></div></div></div>
+      <div class="gallery-item"><div class="gallery-placeholder gc5 h240"><div class="gallery-info"><h4>Chemistry Lab Experiment</h4><p>Activities · 2024</p></div></div></div>
+      <div class="gallery-item"><div class="gallery-placeholder gc6 h180"><div class="gallery-info"><h4>Maths Olympiad Winners</h4><p>Awards · 2023</p></div></div></div>
+      <div class="gallery-item"><div class="gallery-placeholder gc7 h260"><div class="gallery-info"><h4>Board Exam Motivation Day</h4><p>Activities · January 2024</p></div></div></div>
+      <div class="gallery-item"><div class="gallery-placeholder gc8 h200"><div class="gallery-info"><h4>Alumni Talk Session</h4><p>Seminars · 2024</p></div></div></div>
+      <div class="gallery-item"><div class="gallery-placeholder gc9 h240"><div class="gallery-info"><h4>Biology Diagram Workshop</h4><p>Classroom · 2024</p></div></div></div>
+      <div class="gallery-item"><div class="gallery-placeholder gc10 h220"><div class="gallery-info"><h4>Students' Results Day</h4><p>Awards · 2024</p></div></div></div>
+      <div class="gallery-item"><div class="gallery-placeholder gc11 h260"><div class="gallery-info"><h4>IIT Guest Lecture</h4><p>Seminars · September 2024</p></div></div></div>
+      <div class="gallery-item"><div class="gallery-placeholder gc12 h200"><div class="gallery-info"><h4>Group Study Session</h4><p>Activities · 2024</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div><a href="index.html" class="footer-logo">Your Institute Name</a><p class="footer-tagline">Building India's next generation since 2015.</p></div>
+      <div class="footer-col"><h5>Programs</h5><div class="footer-links"><a href="courses.html">Class 9 Tuition</a><a href="courses.html">Class 10 Coaching</a><a href="courses.html">JEE Foundation</a><a href="courses.html">JEE Advanced</a><a href="courses.html">NEET Coaching</a></div></div>
+      <div class="footer-col"><h5>Quick Links</h5><div class="footer-links"><a href="about.html">About Us</a><a href="faculty.html">Faculty</a><a href="results.html">Results</a><a href="materials.html">Study Materials</a><a href="gallery.html">Gallery</a></div></div>
+      <div class="footer-col"><h5>Contact</h5><div class="footer-links"><a href="#">+91 XXXXX XXXXX</a><a href="#">info@yourinstitute.in</a><a href="#">Your City, State</a></div></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Your Institute Name. All rights reserved.</div>
+      <div class="footer-social"><a class="social-btn">📷</a><a class="social-btn">▶</a><a class="social-btn">f</a><a class="social-btn">💬</a></div>
+    </div>
+  </div>
+</footer>
+<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-btn">💬</a>
+<script src="js/main.js"></script>
+</body>
+</html>

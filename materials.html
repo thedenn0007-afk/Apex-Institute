@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Materials — Your Institute Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.materials-full-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.material-full-card {
+  background:white; border-radius:20px; overflow:hidden;
+  border:1px solid var(--border); transition:all 0.3s; display:flex; flex-direction:column;
+}
+.material-full-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,0.1); border-color:var(--emerald); }
+.material-card-header { padding:28px; background:linear-gradient(135deg,var(--navy),var(--navy2)); display:flex; align-items:center; gap:20px; }
+.material-card-icon { font-size:40px; }
+.material-card-header h3 { color:white; font-size:20px; }
+.material-card-header p { color:rgba(255,255,255,0.6); font-size:13px; margin-top:4px; }
+.material-card-body { padding:24px; flex:1; display:flex; flex-direction:column; }
+.material-files { display:flex; flex-direction:column; gap:10px; margin-bottom:24px; flex:1; }
+.material-file {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 16px; background:var(--light); border-radius:10px;
+  border:1px solid var(--border); transition:all 0.2s; text-decoration:none;
+}
+.material-file:hover { background:rgba(5,150,105,0.06); border-color:var(--emerald); }
+.material-file-info { display:flex; align-items:center; gap:10px; }
+.material-file-icon { font-size:20px; }
+.material-file-name { font-size:14px; font-weight:500; color:var(--text); }
+.material-file-size { font-size:12px; color:var(--grey); margin-top:2px; }
+.material-dl-btn { background:var(--emerald); color:white; font-size:12px; font-weight:700; padding:5px 14px; border-radius:8px; transition:all 0.2s; flex-shrink:0; }
+.material-file:hover .material-dl-btn { background:var(--emerald-dark); }
+.filter-bar { display:flex; gap:12px; margin-bottom:40px; flex-wrap:wrap; }
+.filter-btn { padding:8px 24px; border-radius:100px; border:1.5px solid var(--border); font-size:14px; font-weight:600; color:var(--grey); cursor:pointer; transition:all 0.2s; background:white; }
+.filter-btn.active { background:var(--emerald); border-color:var(--emerald); color:white; }
+.filter-btn:hover:not(.active) { border-color:var(--emerald); color:var(--emerald); }
+.unlock-banner {
+  background:linear-gradient(135deg,var(--navy),var(--navy2));
+  border-radius:20px; padding:48px; text-align:center; margin-top:64px;
+  position:relative; overflow:hidden;
+}
+.unlock-banner::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(5,150,105,0.15),transparent); pointer-events:none; }
+.unlock-banner h3 { color:white; font-size:28px; margin-bottom:12px; position:relative; z-index:1; }
+.unlock-banner p { color:rgba(255,255,255,0.6); font-size:16px; max-width:500px; margin:0 auto 28px; line-height:1.7; position:relative; z-index:1; }
+@media(max-width:1024px) { .materials-full-grid { grid-template-columns:1fr 1fr; } }
+@media(max-width:768px) { .materials-full-grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Your Institute Name</a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="courses.html">Courses</a><a href="faculty.html">Faculty</a><a href="results.html">Results</a><a href="materials.html">Materials</a><a href="contact.html">Contact</a>
+    <a href="admissions.html" class="btn btn-primary" style="padding:10px 20px">Enrol Now</a>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-badge">Free Downloads</div>
+    <h1>Study <em>Materials</em></h1>
+    <p>Curated notes, practice papers and question banks prepared by our expert faculty — completely free.</p>
+  </div>
+</div>
+
+<section style="background:var(--white);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Free Resources</div>
+      <h2 class="section-title">Download &amp; <em>Start Learning</em></h2>
+      <p class="section-sub">All materials are prepared by our faculty and updated for the latest exam syllabus.</p>
+    </div>
+
+    <div class="filter-bar fade-in">
+      <button class="filter-btn active" onclick="filterMaterials(this,'all')">All</button>
+      <button class="filter-btn" onclick="filterMaterials(this,'physics')">Physics</button>
+      <button class="filter-btn" onclick="filterMaterials(this,'chemistry')">Chemistry</button>
+      <button class="filter-btn" onclick="filterMaterials(this,'maths')">Mathematics</button>
+      <button class="filter-btn" onclick="filterMaterials(this,'biology')">Biology</button>
+    </div>
+
+    <div class="materials-full-grid" id="materialsGrid">
+      <div class="material-full-card fade-in" data-cat="physics">
+        <div class="material-card-header"><div class="material-card-icon">⚛️</div><div><h3>Physics Notes</h3><p>JEE &amp; NEET Complete Notes</p></div></div>
+        <div class="material-card-body">
+          <div class="material-files">
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Mechanics — Complete Notes</div><div class="material-file-size">PDF · 4.2 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Electromagnetism Notes</div><div class="material-file-size">PDF · 3.8 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Modern Physics Summary</div><div class="material-file-size">PDF · 2.1 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Optics &amp; Waves</div><div class="material-file-size">PDF · 1.9 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="material-full-card fade-in" data-cat="chemistry">
+        <div class="material-card-header" style="background:linear-gradient(135deg,#065f46,#047857)"><div class="material-card-icon">🧪</div><div><h3>Chemistry Papers</h3><p>Practice Papers with Answer Keys</p></div></div>
+        <div class="material-card-body">
+          <div class="material-files">
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Organic Chemistry — Paper Set 1</div><div class="material-file-size">PDF · 2.4 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Inorganic Chemistry — Paper Set 2</div><div class="material-file-size">PDF · 1.8 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Physical Chemistry Problems</div><div class="material-file-size">PDF · 3.1 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Reactions Quick Reference</div><div class="material-file-size">PDF · 900 KB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="material-full-card fade-in" data-cat="maths">
+        <div class="material-card-header" style="background:linear-gradient(135deg,#7C3AED,#5B21B6)"><div class="material-card-icon">📐</div><div><h3>Mathematics Q-Bank</h3><p>1000+ JEE Questions</p></div></div>
+        <div class="material-card-body">
+          <div class="material-files">
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Calculus — 250 Questions</div><div class="material-file-size">PDF · 3.6 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Algebra Question Bank</div><div class="material-file-size">PDF · 2.9 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Coordinate Geometry Problems</div><div class="material-file-size">PDF · 2.2 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Trigonometry Formula Sheet</div><div class="material-file-size">PDF · 800 KB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="material-full-card fade-in" data-cat="biology">
+        <div class="material-card-header" style="background:linear-gradient(135deg,#0F766E,#0D9488)"><div class="material-card-icon">🔬</div><div><h3>Biology Diagrams</h3><p>HD Diagram Sheets for NEET</p></div></div>
+        <div class="material-card-body">
+          <div class="material-files">
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Human Physiology Diagrams</div><div class="material-file-size">PDF · 5.1 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Plant Biology Visual Notes</div><div class="material-file-size">PDF · 3.7 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Genetics &amp; Evolution Notes</div><div class="material-file-size">PDF · 2.8 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Ecology &amp; Biodiversity</div><div class="material-file-size">PDF · 2.0 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="material-full-card fade-in" data-cat="maths physics chemistry">
+        <div class="material-card-header" style="background:linear-gradient(135deg,#1E3A8A,#2563EB)"><div class="material-card-icon">📝</div><div><h3>Previous Year Papers</h3><p>JEE &amp; NEET — Last 10 Years</p></div></div>
+        <div class="material-card-body">
+          <div class="material-files">
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">JEE Advanced 2015–2024</div><div class="material-file-size">PDF · 8.4 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">JEE Mains 2020–2024</div><div class="material-file-size">PDF · 6.2 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">NEET 2015–2024 Papers</div><div class="material-file-size">PDF · 7.8 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">CBSE Class 10 Papers</div><div class="material-file-size">PDF · 4.5 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="material-full-card fade-in" data-cat="physics chemistry maths biology">
+        <div class="material-card-header" style="background:linear-gradient(135deg,#92400e,#b45309)"><div class="material-card-icon">⚡</div><div><h3>Quick Revision</h3><p>Formula Sheets &amp; Flashcards</p></div></div>
+        <div class="material-card-body">
+          <div class="material-files">
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Physics Formula Megasheet</div><div class="material-file-size">PDF · 1.5 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Chemistry Reactions Cheatsheet</div><div class="material-file-size">PDF · 1.2 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Maths Identities &amp; Formulae</div><div class="material-file-size">PDF · 900 KB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+            <a href="#" class="material-file"><div class="material-file-info"><div class="material-file-icon">📄</div><div><div class="material-file-name">Biology NCERT Highlights</div><div class="material-file-size">PDF · 2.3 MB</div></div></div><div class="material-dl-btn">↓ PDF</div></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="unlock-banner fade-in">
+      <div style="position:relative;z-index:1;">
+        <h3>Want Access to Premium Materials?</h3>
+        <p>Enrolled students get access to our complete library — 200+ PDFs, video solutions, and live doubt sessions.</p>
+        <a href="admissions.html" class="btn btn-primary">Enrol to Unlock All →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div><a href="index.html" class="footer-logo">Your Institute Name</a><p class="footer-tagline">Building India's next generation since 2015.</p></div>
+      <div class="footer-col"><h5>Programs</h5><div class="footer-links"><a href="courses.html">Class 9 Tuition</a><a href="courses.html">Class 10 Coaching</a><a href="courses.html">JEE Foundation</a><a href="courses.html">JEE Advanced</a><a href="courses.html">NEET Coaching</a></div></div>
+      <div class="footer-col"><h5>Quick Links</h5><div class="footer-links"><a href="about.html">About Us</a><a href="faculty.html">Faculty</a><a href="results.html">Results</a><a href="materials.html">Study Materials</a><a href="gallery.html">Gallery</a></div></div>
+      <div class="footer-col"><h5>Contact</h5><div class="footer-links"><a href="#">+91 XXXXX XXXXX</a><a href="#">info@yourinstitute.in</a><a href="#">Your City, State</a></div></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Your Institute Name. All rights reserved.</div>
+      <div class="footer-social"><a class="social-btn">📷</a><a class="social-btn">▶</a><a class="social-btn">f</a><a class="social-btn">💬</a></div>
+    </div>
+  </div>
+</footer>
+<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-btn">💬</a>
+<script src="js/main.js"></script>
+<script>
+function filterMaterials(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.material-full-card').forEach(card => {
+    const cardCat = card.dataset.cat || '';
+    card.style.display = (cat === 'all' || cardCat.includes(cat)) ? 'flex' : 'none';
+  });
+}
+</script>
+</body>
+</html>

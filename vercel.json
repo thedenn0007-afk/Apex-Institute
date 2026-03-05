@@ -1,0 +1,32 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/courses", "destination": "/courses.html" },
+    { "source": "/faculty", "destination": "/faculty.html" },
+    { "source": "/results", "destination": "/results.html" },
+    { "source": "/materials", "destination": "/materials.html" },
+    { "source": "/admissions", "destination": "/admissions.html" },
+    { "source": "/gallery", "destination": "/gallery.html" },
+    { "source": "/contact", "destination": "/contact.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" }
+      ]
+    },
+    {
+      "source": "/css/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/js/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    }
+  ]
+}

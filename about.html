@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Your Institute Name</title>
+<meta name="description" content="Learn about Your Institute Name — our mission, history, and commitment to student success since 2015.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+.about-visual {
+  border-radius:24px; overflow:hidden; min-height:480px;
+  background:linear-gradient(135deg,var(--navy),var(--navy2));
+  display:flex; align-items:center; justify-content:center; flex-direction:column; gap:24px;
+  position:relative;
+}
+.about-visual::before {
+  content:''; position:absolute; inset:0;
+  background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
+  background-size:40px 40px;
+}
+.about-visual-inner { position:relative; z-index:1; text-align:center; }
+.about-year { font-family:'Playfair Display',serif; font-size:100px; font-weight:800; color:rgba(255,255,255,0.06); line-height:1; }
+.about-founded { background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); color:var(--emerald-light); padding:12px 28px; border-radius:100px; font-size:15px; font-weight:600; }
+.milestones { display:flex; flex-direction:column; gap:0; margin-top:24px; }
+.milestone { display:flex; gap:20px; padding:24px 0; border-bottom:1px solid var(--border); }
+.milestone:last-child { border-bottom:none; }
+.milestone-year { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--emerald); min-width:60px; }
+.milestone-text h4 { font-size:16px; color:var(--navy); margin-bottom:4px; }
+.milestone-text p { font-size:14px; color:var(--grey); line-height:1.6; }
+.values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.value-card { background:var(--light); border-radius:16px; padding:32px; border:1px solid var(--border); transition:all 0.3s; }
+.value-card:hover { background:white; box-shadow:0 12px 32px rgba(0,0,0,0.07); transform:translateY(-4px); }
+.value-icon { font-size:32px; margin-bottom:16px; }
+.value-card h3 { font-size:18px; color:var(--navy); margin-bottom:10px; }
+.value-card p { font-size:14px; color:var(--grey); line-height:1.7; }
+.mission-box {
+  background:linear-gradient(135deg,var(--navy),var(--navy2));
+  border-radius:24px; padding:64px; text-align:center;
+  position:relative; overflow:hidden;
+}
+.mission-box::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(5,150,105,0.15),transparent); pointer-events:none; }
+.mission-box h2 { color:white; font-size:clamp(26px,3vw,38px); margin-bottom:20px; }
+.mission-box h2 em { color:var(--emerald-light); font-style:normal; }
+.mission-box p { color:rgba(255,255,255,0.65); font-size:18px; max-width:600px; margin:0 auto; line-height:1.8; font-weight:300; }
+@media(max-width:768px) {
+  .about-grid { grid-template-columns:1fr; }
+  .values-grid { grid-template-columns:1fr; }
+  .mission-box { padding:40px 24px; }
+}
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Your Institute Name</a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="courses.html">Courses</a><a href="faculty.html">Faculty</a><a href="results.html">Results</a><a href="materials.html">Materials</a><a href="contact.html">Contact</a>
+    <a href="admissions.html" class="btn btn-primary" style="padding:10px 20px">Enrol Now</a>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-badge">Est. 2015</div>
+    <h1>About <em>Our Institute</em></h1>
+    <p>A decade of shaping academic excellence for JEE, NEET and board exam aspirants across India.</p>
+  </div>
+</div>
+
+<section style="background:var(--white);">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual fade-in">
+        <div class="about-visual-inner">
+          <div class="about-year">2015</div>
+          <div class="about-founded">Founded with a Vision</div>
+          <p style="color:rgba(255,255,255,0.5);margin-top:16px;font-size:15px;max-width:260px;line-height:1.7;">10+ years of building India's future engineers and doctors</p>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title">Built on a <em>Simple Belief</em></h2>
+        <p style="font-size:16px;color:var(--grey);line-height:1.8;margin-top:16px;">Your Institute Name was founded in 2015 with one core belief: every student, given the right environment and guidance, has the potential to achieve extraordinary results.</p>
+        <p style="font-size:16px;color:var(--grey);line-height:1.8;margin-top:16px;">We started with a single classroom and 12 students. Today, we've coached 500+ students to top ranks in JEE, NEET, and Class 10 board exams. Our formula hasn't changed — small batches, experienced faculty, and a relentless focus on concepts.</p>
+        <div class="milestones">
+          <div class="milestone"><div class="milestone-year">2015</div><div class="milestone-text"><h4>Institute Founded</h4><p>Started with Class 9 & 10 tuition in a single classroom.</p></div></div>
+          <div class="milestone"><div class="milestone-year">2017</div><div class="milestone-text"><h4>JEE Coaching Launched</h4><p>Expanded to full JEE preparation. First batch produced AIR 340.</p></div></div>
+          <div class="milestone"><div class="milestone-year">2019</div><div class="milestone-text"><h4>NEET Program Added</h4><p>Dedicated NEET coaching with biology specialist faculty.</p></div></div>
+          <div class="milestone"><div class="milestone-year">2024</div><div class="milestone-text"><h4>500+ Alumni</h4><p>Celebrated 500+ students placed in top IITs and medical colleges.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--cream);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Our Values</div>
+      <h2 class="section-title">What We <em>Stand For</em></h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card fade-in"><div class="value-icon">🎯</div><h3>Concept-First Teaching</h3><p>We never teach shortcuts. We build the deep understanding that lets students handle any problem they encounter.</p></div>
+      <div class="value-card fade-in"><div class="value-icon">🤝</div><h3>Student-Centric Approach</h3><p>Every batch plan, every schedule, every study material is designed around student needs — not administrative convenience.</p></div>
+      <div class="value-card fade-in"><div class="value-icon">📊</div><h3>Data-Driven Progress</h3><p>Weekly tests, monthly reports, and parent-teacher meetings ensure every student's growth is tracked and supported.</p></div>
+      <div class="value-card fade-in"><div class="value-icon">🏆</div><h3>Culture of Excellence</h3><p>We celebrate every rank, every improvement, and every milestone — building a community that motivates itself.</p></div>
+      <div class="value-card fade-in"><div class="value-icon">🔬</div><h3>Expert Faculty</h3><p>Our teachers are selected through a rigorous process. Every faculty member has a proven track record in student results.</p></div>
+      <div class="value-card fade-in"><div class="value-icon">💬</div><h3>Open Communication</h3><p>Students and parents can reach faculty anytime for doubts, progress updates, or career guidance — no appointments needed.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white);">
+  <div class="container">
+    <div class="mission-box fade-in">
+      <div style="position:relative;z-index:1;">
+        <div class="section-label" style="color:var(--emerald-light);">Our Mission</div>
+        <h2>To Build Strong Foundations &<br>Help Students <em>Reach Their Peak</em></h2>
+        <p>We don't just prepare students for exams. We prepare them for the careers and lives they dream of. Every concept we teach, every test we set, and every session we run is guided by a single purpose — your success.</p>
+        <a href="admissions.html" class="btn btn-primary" style="margin-top:32px;">Start Your Journey →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div><a href="index.html" class="footer-logo">Your Institute Name</a><p class="footer-tagline">Building India's next generation of engineers, doctors and scholars since 2015.</p></div>
+      <div class="footer-col"><h5>Programs</h5><div class="footer-links"><a href="courses.html">Class 9 Tuition</a><a href="courses.html">Class 10 Coaching</a><a href="courses.html">JEE Foundation</a><a href="courses.html">JEE Advanced</a><a href="courses.html">NEET Coaching</a></div></div>
+      <div class="footer-col"><h5>Quick Links</h5><div class="footer-links"><a href="about.html">About Us</a><a href="faculty.html">Faculty</a><a href="results.html">Results</a><a href="materials.html">Study Materials</a><a href="gallery.html">Gallery</a></div></div>
+      <div class="footer-col"><h5>Contact</h5><div class="footer-links"><a href="#">+91 XXXXX XXXXX</a><a href="#">info@yourinstitute.in</a><a href="#">Your City, State</a></div></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Your Institute Name. All rights reserved.</div>
+      <div class="footer-social"><a class="social-btn">📷</a><a class="social-btn">▶</a><a class="social-btn">f</a><a class="social-btn">💬</a></div>
+    </div>
+  </div>
+</footer>
+<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-btn">💬</a>
+<script src="js/main.js"></script>
+</body>
+</html>
