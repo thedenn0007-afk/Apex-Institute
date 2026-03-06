@@ -44,12 +44,13 @@ function handleSubmit(btn) {
 function animateCounters() {
   document.querySelectorAll('[data-target]').forEach(el => {
     const target = parseInt(el.dataset.target);
-    const suffix = el.querySelector('span')?.textContent || '';
+    const text = el.textContent;
+    const suffix = text.replace(/[0-9]/g, '');
     let current = 0;
     const step = Math.ceil(target / 50);
     const timer = setInterval(() => {
       current = Math.min(current + step, target);
-      el.innerHTML = current + '<span>' + suffix + '</span>';
+      el.textContent = current + suffix;
       if (current >= target) clearInterval(timer);
     }, 30);
   });
